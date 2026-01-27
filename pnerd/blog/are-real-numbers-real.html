@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#"><head>
+		<title>Are Real Numbers Real? - PLATO AND THE NERD</title><meta property="og:site_name" content="PLATO AND THE NERD">
+<meta property="og:title" content="Are Real Numbers Real?">
+<meta property="og:description" content="The mathematician and computer scientist Gregory Chaitin, who is well known for contributions to algorithmic information theory, questions the &quot;reality&quot; of real numbers [Chaitin, 2004, 2005]. He...">
+<meta property="og:image" content="https://ptolemy.eecs.berkeley.edu/~eal/pnerd//cdn2.editmysite.com/images/old/bg_feed.gif">
+<meta property="og:url" content="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/1/post/2017/06/are-real-numbers-real.html">
+
+<link rel="icon" type="image/png" href="http://www.weebly.com/uploads/reseller/assets/1001-favicon.ico">
+<meta http-equiv="cache-control" content="no-cache">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/sites.css">
+<link rel="stylesheet" type="text/css" href="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/fancybox.css">
+<link rel="stylesheet" type="text/css" href="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/social-icons.css" media="screen,projection">
+<link rel="stylesheet" type="text/css" href="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/main_style.css" title="wsite-theme-css">
+<link href="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/css.css" rel="stylesheet" type="text/css">
+
+<link href="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/css.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {color:#2a2a2a !important;}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-family:"Montserrat" !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-style:normal !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {font-size:20px !important;}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-size:48px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+}</style>
+
+		<script src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/rules-p-0dYLvhSGGqUWo.js"></script><script id="facebook-jssdk" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/sdk.js"></script><script src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/quant.js" async="" type="text/javascript"></script><script async="" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/snowday262.js"></script><script type="text/javascript" async="" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/ga.js"></script><script async="" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/analytics.js"></script><script async="" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/snowday261.js"></script><script>
+var STATIC_BASE = '//cdn1.editmysite.com/';
+var ASSETS_BASE = '//cdn2.editmysite.com/';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/jquery.js"></script>
+
+<script type="text/javascript" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/stl.js"></script>
+<script src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/main.js"></script><script type="text/javascript">_W.resellerSite = true;</script><script type="text/javascript">_W.configDomain = "www.weebly.com";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/stl.js"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	
+	
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"291367481143601446","title":"Home","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"322392442140438985","title":"About","url":"about.html","target":"","nav_menu":false,"nonclickable":false},{"id":"488830708675785077","title":"Title","url":"title.html","target":"","nav_menu":false,"nonclickable":false},{"id":"701559919673509015","title":"Blog","url":"blog.html","target":"","nav_menu":false,"nonclickable":false},{"id":"283722659441533929","title":"Viewpoints","url":"viewpoints.html","target":"","nav_menu":false,"nonclickable":false},{"id":"690784810487449702","title":"Author","url":"author.html","target":"","nav_menu":false,"nonclickable":false}],
+			"701559919673509015",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{}
+		)
+	}
+//-->
+</script>
+		
+		
+	<script type="text/javascript" async="" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/widgets.js"></script><script type="text/javascript" charset="utf-8" async="" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/button.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(http://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+	<body class="no-header-page  wsite-page-blog wsite-blog-post  full-width-body-off header-overlay-on alt-nav-off  wsite-theme-light fade-in"><div class="wrapper">
+    <div class="birdseye-header">
+      <div class="nav-wrap">
+        <div class="container">
+          <div class="logo"><span class="wsite-logo">
+
+	<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/">
+	
+	<span id="wsite-title">PLATO AND THE NERD</span>
+	
+	</a>
+
+</span></div>
+          <div class="nav desktop-nav"><ul class="wsite-menu-default">
+		<li id="pg291367481143601446" class="wsite-menu-item-wrap   wsite-nav-1" style="position: relative;">
+			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/" class="wsite-menu-item" style="position: relative;">
+				Home
+			</a>
+			
+		</li>
+		<li id="pg322392442140438985" class="wsite-menu-item-wrap   wsite-nav-2" style="position: relative;">
+			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/about.html" class="wsite-menu-item" style="position: relative;">
+				About
+			</a>
+			
+		</li>
+		<li id="pg488830708675785077" class="wsite-menu-item-wrap   wsite-nav-3" style="position: relative;">
+			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/title.html" class="wsite-menu-item" style="position: relative;">
+				Title
+			</a>
+			
+		</li>
+		<li id="active" class="wsite-menu-item-wrap   wsite-nav-4" style="position: relative;">
+			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/blog.html" class="wsite-menu-item" style="position: relative;">
+				Blog
+			</a>
+			
+		</li>
+		<li id="pg283722659441533929" class="wsite-menu-item-wrap   wsite-nav-5" style="position: relative;">
+			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/viewpoints.html" class="wsite-menu-item" style="position: relative;">
+				Viewpoints
+			</a>
+			
+		</li>
+		<li id="pg690784810487449702" class="wsite-menu-item-wrap   wsite-nav-6" style="position: relative;">
+			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/author.html" class="wsite-menu-item" style="position: relative;">
+				Author
+			</a>
+			
+		</li>
+</ul>
+</div>
+          <label class="hamburger"><span></span></label>
+        </div>
+      </div>
+    <div id="wsite-menus"></div></div>
+
+    <div class="main-wrap">
+      <div class="wsite-section-content">
+          <div class="container"><div class="wsite-elements wsite-not-footer">
+	<table id="blogTable" class="wsite-not-footer" style="border: 0; width: 100%; table-layout: fixed">
+	<tbody><tr>
+	    <td valign="top">
+	        	<div id="701559919673509015-blog" class="blog-body" style="float: left;"> 
+		<div id="wsite-content">	<div id="blog-post-861650760412996176" class="blog-post">
+	
+	
+		<div class="blog-header">
+			<h2 class="blog-title">
+					<a class="blog-title-link blog-link" href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/blog/are-real-numbers-real">Are Real Numbers Real?</a>
+
+			</h2>
+			<p class="blog-date">
+					<span class="date-text">
+		6/20/2017
+	</span>
+
+			</p>
+		</div>
+	
+		<div class="blog-separator">&nbsp;</div>
+	
+		<div class="blog-content">
+				<div>
+<div id="318971397480631137" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<p>The mathematician and computer scientist Gregory Chaitin, who is well
+ known for contributions to algorithmic information theory, questions 
+the "reality" of real numbers [Chaitin, 2004, 2005]. He points out 
+mathematical, philosophical, and computational difficulties with real 
+numbers and concludes that these difficulties undermine the common 
+assumption that real numbers underlie physical reality, strongly 
+suggesting that physical reality may in fact be discrete, digital and 
+computational.</p>
+
+<p>In a first example of the difficulties posed by real numbers, Chaitin
+ cites the French mathematician Emile Borel, best known for his 
+foundational work in measure theory and probability. Borel, in 1927, in 
+Chaitin's words,</p>
+
+<blockquote>
+pointed out that if you really believe in the notion of a real number as
+ an infinite sequence of digits 3.1415926 ..., then you could put all of
+ human knowledge into a single real number. [Chaitin, 2005]
+</blockquote>
+
+<p>Chaitin calls this number "Borel's amazing know-it-all real number."</p>
+
+<p>One way to construct Borel's number is to list, in some order, all 
+the yes-no questions that have answers (Borel's questions were in 
+French, and they could be ordered by length in characters and then 
+alphabetically). These can be listed because the set of all texts in any
+ fixed written language is countable. Then Borel's number can be 
+represented in binary as 0.<i>b</i><sub>1</sub><i>b</i><sub>2</sub><i>b</i><sub>3</sub> ... where <i>b</i><sub><i>i</i></sub> is 0 if the answer to the <i>i</i>-th question is NO and 1 if it is YES. The resulting number is a real number between 0 and 1.</p>
+
+<p>Chaitin implies that Borel's number could not exist in any reasonable
+ sense, presumably because it is not possible to "know it all." There 
+are some problems with this argument. First, what does it mean for a 
+number to "exist." The philosopher Immanuel Kant made the distinction 
+between the world as it is, the thing-in-itself (<i>das Ding an sich</i> in German), and the <i>phenomenal</i>
+ world, or the world as it appears to us. Let us assume that what 
+Chaitin means by "exists" is that it is a thing-in-itself, in which 
+case, whether the know-it-all number reveals itself to us, becoming a 
+phenomenon, is irrelevant to its existence.</p>
+
+<p>In fact, if Borel's number exists as a thing-in-itself, outside ourselves, then it <i>cannot</i> reveal itself to us. In <i>Plato and the Nerd</i>,
+ I review Claude Shannon's channel capacity theorem [Shannon, 1948], 
+which states that any noisy observation of anything conveys only a 
+finite number of bits of information. Borel's know-it-all number cannot 
+be encoded with finite number of bits unless the list all possible 
+yes-no questions is finite, which it is not. It is easy to construct an 
+infinite sequence of valid yes-no questions. For example, let the first 
+question be "Is one a whole number?" Let the second question be "Is the 
+answer to the first question YES?" Let the third question be "Is the 
+answer to the second question YES?" And so on. As a consequence, Borel's
+ number cannot reveal itself to us unless we invent some noiseless way 
+of observing a thing in itself. Assuming no such noiseless channel 
+exists, the channel capacity theorem implies that we cannot know Borel's
+ number. But this in no way undermines its existence.</p>
+
+<p>Returning to the original question, are real numbers real, I have to ask, are <i>numbers</i>
+ real? There is real risk here of confusing the map with the territory. 
+For numbers to be real, we have to assume a Platonic heaven where 
+universal truths exist independent of humans. Numbers, be they whole 
+numbers, rational numbers, or reals, would be premier citizens of such a
+ heaven. Since that heaven's existence is independent of the existence 
+of humans, then our knowlege of anything in it must be conveyed somehow 
+to us through observation or through introspection. If it is conveyed to
+ us through observation, then it will be subject to Shannon's channel 
+capacity theorem, in which case we can only know about things that can 
+be encoded in a finite number of bits. If it is conveyed to us through 
+introspection, then its existence is a matter of faith, since its 
+existence is independent of us, and there is no connection between that 
+introspection and the thing-in-itself, by definition of introspection.</p>
+
+<p>A second example of the problems posed by real numbers is Richard's 
+paradox, first stated by the French mathematician Jules Richard in 
+letter in 1905. Richard pointed out that all possible texts in French 
+can be listed in some order in a manner similar to Borel's yes-no 
+questions. A subset of these texts describe or name real numbers. But it
+ is easy to describe a number that is not described on the list using 
+Cantor's diagonalization technique (see chapter 8 of <i>P &amp; N</i>). 
+If I describe that technique, then I have just given you a text (which 
+can be translated into French) that describes a number that is not in 
+the list of all describable or nameable numbers.</p>
+
+<p>Every interpretation of a text in French or English as a number depends on the notion of <i>semantics</i>, discussed in chapter 9 of <i>P &amp; N</i>,
+ where I point out that "the notion of semantics can leverage the 
+countable world of software in an uncountable variety of ways." 
+Semantics connects human cognition with the formal and countable world 
+of symbols, but we have no evidence that the cognitive world is formal 
+and countable. Arguably, Richard's paradox demonstrates that written 
+language <i>must be ambiguous</i>, perhaps because it bridges a 
+countable world with an uncountable (cognitive) one. Chaitin points out 
+that when we eliminate semantics, we lose a great deal:</p>
+
+<blockquote>
+Formal languages avoid the paradoxes by removing the ambiguities of 
+natural languages. The paradoxes are eliminated, but there is a price. 
+Paradoxical natural languages are evolving open systems. Artificial 
+languages are static closed systems subject to limitative meta-theorems.
+ You avoid the paradoxes, but you are left with a corpse! [Chaitin 2004]
+</blockquote>
+
+<p>In formal languages, paradoxes reduce to incompleteness (GÃ¶del) and 
+undecidability (Turing), soulless concepts compared to nuance and 
+ambiguity in natural language.</p>
+
+<p>Let us assume that numbers are models (maps) reflective of some 
+reality (territories). Under this assumption, Chaitin's question becomes
+ one of whether real numbers are accurate models of some physical 
+reality. We could ask the question of whether real numbers are <i>useful</i> models, but that question seems trivial; we know they are. So let's focus on whether real numbers are <i>accurate</i> models of reality. Chaitin observes that some physicists argue that they are not:</p>
+
+<blockquote>
+The latest strong hints in the direction of discreteness come from 
+quantum gravity [Smolin, 2000], in particular from the Bekenstein bound 
+and the so-called "holographic principle." According to these ideas the 
+amount of information in any physical system is bounded, i.e., is a 
+finite number of 0/1 bits. [Chaitin 2004]
+</blockquote>
+
+<p>As I show in chapter 8 of <i>P &amp; N</i>, this "digital physics" 
+hypothesis is not falsifiable, and therefore not scientific according to
+ the philosophy of Karl Popper [1959]. It can only be taken on faith. 
+Moreover, the arguments for digital physics are based on a flawed 
+interpretation of the Bekenstein bound that fails to recognize the 
+distinction between the entropy of a discrete random variable (which 
+represents information in bits) and the entropy of a continuous random 
+variable (which does not represent information in bits).</p>
+
+<p>Chaitin also leverages biology to bolster his digital faith:</p>
+
+<blockquote>
+Other hints come from ... molecular biology where DNA is the digital software for life ... [Chaitin 2004]
+</blockquote>
+
+<p>As pointed out by George Dyson in Turing's Cathedral,</p>
+
+<blockquote>
+the problem of self-reproduction is fundamentally a problem of 
+communication, over a noisy channel, from one generation to the next. 
+[Dyson, 2012]
+</blockquote>
+
+<p>Since reproduction is a noisy channel, it can convey only information
+ that can be encoded with a finite number of bits. DNA, therefore, might
+ as well be encoded digitally. There would be no point in a richer 
+encoding. Does DNA encode humans? From <i>P &amp; N</i>:</p>
+
+<blockquote>
+Only features that can be encoded with a finite number of bits can be 
+passed from generation to generation, according to the channel capacity 
+theorem. If the mind, or features of the mind such as knowledge, wisdom,
+ and our sense of self, cannot be encoded with a finite number of bits, 
+then these features cannot be inherited by our offspring. It certainly 
+appears that DNA does not encode the mind because the mind of your 
+offspring is not your own or even a combination of those of both 
+biological parents. ...<br><br>
+If the mind requires mechanisms beyond digital for its operation and character, then the mind cannot be conveyed by <i>any</i>
+ mechanism over a noisy channel. Your mind is entirely your own. Not 
+only can it not be passed on to your offspring, it cannot be passed to 
+anything. It will never reside in other hardware unless we invent a 
+noiseless channel. Biological inheritance cannot provide a noiseless 
+channel because if it did, there would be no mutation, there would be no
+ evolution, there would be no humans, and we would have no minds at all.
+ Genetic inheritance is, of necessity, digital, but minds are formed 
+from more than genetics. [Lee 2017]
+</blockquote>
+
+<p>Chaitin's objection is fundamentally to the notion of a <i>continuum</i>,
+ which most certainly does lead to conceptual difficulties in the formal
+ languages of logic and mathematics that humans have invented. But these
+ formal languages live in a countable world, so it should not be 
+surprising that they have difficulty comprehensively handling an 
+uncountable world. Despite these difficulties, the cognitive notion of a
+ continuum is not at all difficult to grasp. The difficulties arise only
+ when trying to <i>communicate</i>, for example by naming or describing all the real numbers. But one can <i>understand</i> without communicating. In fact, conveying understanding is notoriously difficult. We call it "teaching."</p>
+
+<p>The hypothesis that the mind can be encoded digitally is, like 
+digital physics, not falsifiable unless we can invent some way of 
+noiselessly measuring the mind. Since we have no such noiseless 
+measurement, this hypothesis is not scientific. If in fact the mind 
+relies on a continuum for its cognitive functions, this would explain 
+why cognitive functions cannot be inherited and why our minds can deal 
+with real numbers, despite the paradoxes.</p>
+
+<p>Chaitin rests on the ancient Greeks when drawing his sweeping conclusion:</p>
+
+<blockquote>
+According to Pythagoras everything is number, and God is a 
+mathematician. This point of view has worked pretty well throughout the 
+development of modern science. However now a neo-Pythagorian doctrine is
+ emerging, according to which everything is 0/1 bits, and the world is 
+built entirely out of digital information. In other words, now 
+everything is software, God is a computer programmer, not a 
+mathematician, and the world is a giant information-processing system, a
+ giant computer [Chaitin, 2004].
+</blockquote>
+
+<p>This statement describes a faith, not a scientific principle.</p>
+
+<p></p>
+
+<p><i>Edward Ashford Lee</i><br>
+June 20, 2017</p>
+
+<h2>References</h2>
+<p>
+
+</p><p></p>
+
+<ol><li>Chaitin, Gregory [2004], "How Real are Real Numbers?" <a href="https://arxiv.org/abs/math/0411418v3">arXiv:math/0411418v3 [math.HO]</a>, Nov. 29.
+</li>
+
+<li>Chaitin, Gregory [2005], <i>Meta Math!: The Quest for Omega</i>, Pantheon Books.</li>
+
+<li>Dyson, George [2012], <i>Turing's Cathedral --- The Origins of the Digital Universe</i>, Pantheon Books.</li>
+
+<li>Lee, Edward Ashford [2017] <i>Plato and the Nerd: The Creative Partnership of Humans and Technology</i>, MIT Press.</li>
+
+<li>Popper, Karl [1959], <i>The Logic of Scientific Discovery</i>, Hutchinson &amp; Co.</li>
+
+<li>Shannon, Claude E. [1948], "<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/blog/dx.doi.org//10.1145/584091.584093">A mathematical theory of communication</a>," <i>Bell System Technical Journal</i>.
+</li>
+
+<li>Smolin, Lee [2000], <i>Three Roads to Quantum Gravity</i>, Weidenfeld &amp; Nicolson.</li>
+</ol><p>
+</p></div>
+</div>
+
+<div>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+</div>
+
+<p class="blog-feed-link"></p>
+<link href="" rel="alternate" type="application/rss+xml" title="RSS"><a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/1/feed"><img src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/bg_feed.gif"> RSS Feed</a>
+<p></p>
+
+
+		</div>
+	
+	
+			<div class="blog-social  ">
+		<div class="blog-social-item blog-fb-like"><fb:like href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/1/post/2017/06/are-real-numbers-real.html" width="90" layout="button_count" action="like" show_faces="false" share="false" class=" fb_iframe_widget" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=190291501407&amp;container_width=0&amp;href=http%3A%2F%2Fplatoandthenerd.org%2F1%2Fpost%2F2017%2F06%2Fare-real-numbers-real.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false&amp;width=90"><span style="vertical-align: bottom; width: 61px; height: 20px;"><iframe name="f1efe88de7cb64e" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 61px; height: 20px;" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/like.html" class="" width="90px" height="1000px" frameborder="0"></iframe></span></fb:like></div><div class="blog-social-item"><iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 61px; height: 20px;" title="Twitter Tweet Button" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/tweet_button.html" data-url="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/1/post/2017/06/are-real-numbers-real.html" frameborder="0"></iframe></div>
+		<div style="clear:both"></div>
+	</div>
+
+	
+		<div class="blog-post-separator"></div>
+	</div>
+
+
+    <a name="comments" id="comments"></a>
+<div id="commentArea">
+	<div class="blog-comment-area">
+		
+
+		<div id="commentText">
+			<!-- lastComment -->
+		<div id="lastComment"> </div>
+		</div>
+		<br>
+		
+		
+			<br><br>
+			<h2 id="commentReplyTitle">Leave a Reply.</h2>
+			<div class="blogCommentReplyWrapper ">
+				<div class="iframeWrapper">
+					<div class="iframeContainer">
+						<iframe src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/showCommentForm-v2.html" allowtransparency="true" scrolling="no" style="min-height: 610px;" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+
+	</div>
+	<!-- bid-1: , path:  -->
+</div>
+ 
+<!-- bid: $blog_id --></div>
+	</div>
+
+	    </td>
+	        <td class="blog-sidebar" valign="top">
+	            <div id="701559919673509015-sidebar" class="column-blog">
+	<div class="blog-sidebar-separator">
+		<ul id="701559919673509015-sidebar-list" class="columnlist-blog" style="margin:0; padding: 0;">
+			<h2 class="blog-author-title">Edward Ashford Lee<br></h2>
+<p>Author of <em>Plato and the Nerd: The Creative Partnership of Humans and Technology</em><br></p>
+
+		</ul>
+	</div>
+</div>
+
+	        </td>
+	</tr>
+</tbody></table>
+
+</div>
+</div>
+      </div>
+    </div>
+
+    <div class="footer-wrap">
+      <div class="container">
+        <div class="footer"><div class="wsite-elements wsite-footer">
+<div class="paragraph" style="text-align:right;">Site powered by Weebly.<br></div></div></div>
+      </div><!-- end container -->
+    </div><!-- end footer-wrap -->
+  </div><!-- /.wrapper -->
+
+  <div id="navMobile" class="nav mobile-nav">
+    <label class="hamburger"><span></span></label>
+    <ul class="wsite-menu-default">
+    		<li id="pg291367481143601446" class="wsite-menu-item-wrap">
+    			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/" class="wsite-menu-item">
+    				Home
+    			</a>
+    			
+    		</li>
+    		<li id="pg322392442140438985" class="wsite-menu-item-wrap">
+    			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/about.html" class="wsite-menu-item">
+    				About
+    			</a>
+    			
+    		</li>
+    		<li id="pg488830708675785077" class="wsite-menu-item-wrap">
+    			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/title.html" class="wsite-menu-item">
+    				Title
+    			</a>
+    			
+    		</li>
+    		<li id="active" class="wsite-menu-item-wrap">
+    			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/blog.html" class="wsite-menu-item">
+    				Blog
+    			</a>
+    			
+    		</li>
+    		<li id="pg283722659441533929" class="wsite-menu-item-wrap">
+    			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/viewpoints.html" class="wsite-menu-item">
+    				Viewpoints
+    			</a>
+    			
+    		</li>
+    		<li id="pg690784810487449702" class="wsite-menu-item-wrap">
+    			<a href="https://ptolemy.eecs.berkeley.edu/~eal/pnerd/author.html" class="wsite-menu-item">
+    				Author
+    			</a>
+    			
+    		</li>
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/plugins.js"></script>
+  <script type="text/javascript" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/custom.js"></script>
+
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99234028-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-7870337-1']);
+	_gaq.push(['_setDomainName', 'none']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+	_W.Analytics = _W.Analytics || {'trackers': {}};
+	_W.Analytics.trackers.wGA = '_gaq';
+
+</script>
+
+<script type="text/javascript" async="1">
+	;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+			p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+			};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+			n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,'script','//cdn2.editmysite.com/js/wsnbn/snowday262.js','snowday'));
+
+	var r = [99, 104, 101, 99, 107, 111, 117, 116, 46, 40, 119, 101, 101, 98, 108, 121, 124, 101, 100, 105, 116, 109, 121, 115, 105, 116, 101, 41, 46, 99, 111, 109];
+	var snPlObR = function(arr) {
+		var s = '';
+		for (var i = 0 ; i < arr.length ; i++){
+			s = s + String.fromCharCode(arr[i]);
+		}
+		return s;
+	};
+	var s = snPlObR(r);
+
+	var regEx = new RegExp(s);
+
+	_W.Analytics = _W.Analytics || {'trackers': {}};
+	_W.Analytics.trackers.wSP = 'snowday';
+	_W.Analytics.user_id = '34524143';
+	_W.Analytics.site_id = '545117291859654997';
+
+
+	(function(app_id, ec_hostname, discover_root_domain) {
+		var track = window[_W.Analytics.trackers.wSP];
+		if (!track) return;
+		track('newTracker', app_id, ec_hostname, {
+			appId: app_id,
+			post: true,
+			platform: 'web',
+			discoverRootDomain: discover_root_domain,
+			cookieName: '_snow_',
+			contexts: {
+				webPage: true,
+				performanceTiming: true,
+				gaCookies: true
+			},
+			crossDomainLinker: function (linkElement) {
+				return regEx.test(linkElement.href);
+			}
+		});
+		track('trackPageView', _W.Analytics.user_id+':'+_W.Analytics.site_id);
+		track('crossDomainLinker', function (linkElement) {
+			return regEx.test(linkElement.href);
+		});
+	})(
+		'_wn',
+		'ec.editmysite.com',
+		true
+	);
+</script>
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = "https://secure.quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-0dYLvhSGGqUWo",
+labels:"l0,u34524143.u34524143s545117291859654997"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-0dYLvhSGGqUWo.gif?labels=l0,u34524143.u34524143s545117291859654997" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+<script>
+
+	(function(jQuery) {
+		try {
+			if (jQuery) {
+				jQuery('div.blog-social div.fb-like').attr('class', 'blog-social-item blog-fb-like');
+				var $commentFrame = jQuery('#commentArea iframe');
+				if ($commentFrame.length > 0) {
+					var frameHeight = jQuery($commentFrame[0].contentWindow.document).height() + 50;
+					$commentFrame.css('min-height', frameHeight + 'px');
+				}
+				if (jQuery('.product-button').length > 0){
+					jQuery(document).ready(function(){
+						jQuery('.product-button').parent().each(function(index, product){
+							if(jQuery(product).attr('target') == 'paypal'){
+								if (!jQuery(product).find('> [name="bn"]').length){
+									jQuery('<input>').attr({
+										type: 'hidden',
+										name: 'bn',
+										value: 'DragAndDropBuil_SP_EC'
+									}).appendTo(product);
+								}
+							}
+						});
+					});
+				}
+			}
+			else {
+				// Prototype
+				$$('div.blog-social div.fb-like').each(function(div) {
+					div.className = 'blog-social-item blog-fb-like';
+				});
+				$$('#commentArea iframe').each(function(iframe) {
+					iframe.style.minHeight = '410px';
+				});
+			}
+		}
+		catch(ex) {}
+	})(window._W && _W.jQuery);
+
+</script>
+<div id="eu-cookie" class="notification" style="display: none;">
+	<span id="eu-cookie-content"></span>
+	<span id="eu-cookie-close">✕</span>
+</div>
+
+<script type="text/javascript">
+	(function($) {
+		window.cookie_location = '';
+		// this cookie_content should already be pre-encoded from CookieSettingView.js
+		window.cookie_content = '' || _W.stl('templates.publish.virtual-includes.footerCode_1');
+		window.cookie_policy_key = '545117291859654997_cookie_policy';
+		window.cookie_content_hash = '';
+
+		if (!_W.getCookie(window.cookie_policy_key) || _W.getCookie(window.cookie_policy_key) !== window.cookie_content_hash){
+			if (window.cookie_location === 'top' || window.cookie_location === 'bottom'){
+				$('#eu-cookie-content').text(decodeURIComponent(window.cookie_content));
+				(window.cookie_location === 'top') ? animateFromTop() : animateFromBottom();
+				$('#eu-cookie').show();
+			}
+		}
+
+		$('#eu-cookie-close').click(function(){
+			_W.setCookie(window.cookie_policy_key, window.cookie_content_hash, 100000);
+			$('#eu-cookie').hide();
+		});
+
+		function animateFromTop(){
+			$('#eu-cookie').css({
+				'top': '0px',
+				'animation': 'reveal-top 1 2s'
+			});
+		}
+
+		function animateFromBottom(){
+			$('#eu-cookie').css({
+				'bottom': '0px',
+				'animation': 'reveal-bottom 1 2s'
+			});
+		}
+	})(window._W && _W.jQuery);
+</script>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="http://staticxx.facebook.com/connect/xd_arbiter/r/0sTQzbapM8j.js?version=42#channel=f33b53a35272c98&amp;origin=http%3A%2F%2Fplatoandthenerd.org" frameborder="0"></iframe><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="Are%20Real%20Numbers%20Real%3F%20-%20PLATO%20AND%20THE%20NERD_files/0sTQzbapM8j_002.html" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId : '190291501407',
+			xfbml : true,
+			version : 'v2.6'
+		});
+
+        // Set Facebook comment plugin's colorscheme based off of theme
+		var comments = document.getElementsByClassName('facebook-comment-widget'),
+			scheme = document.body.className.match('wsite-theme-light');
+
+		for (var i = 0; i < comments.length; i++) {
+			comments[i].setAttribute('colorscheme', scheme ? 'light' : 'dark');
+		}
+
+		var fbCommentCounts;
+
+		FB.Event.subscribe('xfbml.render', function(){
+			fbCommentCounts = jQuery('.fb_comments_count');
+			for (var i = 0; i < fbCommentCounts.length; i++) {
+				var commentText = (jQuery(fbCommentCounts[i]).text() == '1' ? "Comment" : "Comments");
+				jQuery(fbCommentCounts[i]).parent().siblings('.fb_comment_count_label').text(commentText);
+			}
+		});
+
+		var comment_callback = function(res) {
+			FB.XFBML.parse(); // Refresh comment counters on page
+		}
+
+		FB.Event.subscribe('comment.create', comment_callback);
+		FB.Event.subscribe('comment.remove', comment_callback);
+
+	};
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/"+_W.facebookLocale+"/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript">
+	(function() {
+		function j(src, id) {
+			var s = document.createElement('script');
+			s.type = 'text/javascript';
+			s.async = true;
+			s.src = src;
+			if(id) {s.id=id};
+			document.getElementsByTagName('head')[0].appendChild(s);
+		}
+		j('//platform.twi'+'tter.com/widgets.js');
+	})()
+</script>
+	
+
+</body></html>

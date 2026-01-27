@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml
+1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+<title>Research</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!--#include virtual="top.html" -->
+<h3>Reviews of IoT Devices</h3>
+<p>
+I wanted a thermostat that was controllable over the Internet but was not second guessing my wishes
+nor watching my actions, so I bought a Honeywell 7 Day Programmable Wi-Fi Enabled Thermostat, shown below:
+<br>
+<img src="images/thermostat.jpg" alt="Thermostat image" width="300"/>
+</br>
+The thermostat requires 24 volt power, and my heating system was missing that wire, so I had to separately
+buy a wall wart to provide the power. Otherwise, the installation was easy.
+The images below, however, show that while Honeywell has good skills at designing slick user interfaces,
+they apparently can't design a thermostat that works. In the image below, you can see that the current time
+is 5:32AM, the current temperature is 67, and the setpoint is 67:
+<br>
+<img src="images/thermostatControl.jpg" alt="Thermostat control" width="400"/>
+<br>
+However, the schedule below shows that the setpoint should be 57, not 67:
+<br>
+<img src="images/thermostatSchedule.jpg" alt="Thermostat schedule" width="400"/>
+<br>
+Sure enough, every night, at some time (I'm not sure what time; I'm asleep), the thermostat
+starts dancing to its own drummer and invents its own schedule. When the house gets too warm
+for sleeping, I wake up, as happened here at 5:35AM.
+</p><p>
+After several exchanges with Honeywell support, where they suggest the usual reboot, de-register and
+re-register, etc., they confessed that this was a "feature," where the thermostat does
+in fact second guess me and tries to learn when to actually change the setpoint
+so that the setpoint temperature is reached by the time I've specified that the setpoint
+should change. It apparently does this "conservatively" (which in this case
+means "squandering energy"), reaching the desired setpoint
+well in advance of the specified time.  This "feature," it turns out, can be
+disabled as follows:
+<ol>
+<li> Press and hold the FAN button and UP arrow key until your screen changes. 
+<li> Press Next, until you get number "13" on the left.
+<li> Using the arrow keys, change the number on the right from a 1 (Feature "On")  to a 0 (Feature "Off").
+<li> Press Done.
+</ol>
+This not-so-slick user interface is most definitely a pre-IoT design.
+</p><p>
+The bottom line seems to be that you cannot escape it.
+Your devices will increasingly second guess you,
+which I suppose means that we will steadily lose control.
+<p>
+<!--#include virtual="bottom.html" -->
+</html>
