@@ -1,0 +1,290 @@
+#!/usr/bin/env python3
+"""Build a static copy of the EAL homepage for GitHub Pages.
+
+Expands SSI includes (including relative virtual paths), rewrites legacy
+/~eal/ URLs for the deployed location, and optionally adds a base path
+prefix for project-page hosting.
+
+Usage:
+    bin/build-for-pages [output_dir]
+
+Environment:
+    SITE_BASE_PATH   URL prefix where this site is served (e.g. /homepage for
+                     edwardalee.github.io/homepage, or /~eal when deployed
+                     under ptolemy.org). Leave unset for domain root.
+"""
+
+from __future__ import annotations
+
+import os
+import re
+import shutil
+import sys
+from pathlib import Path
+
+SSI_INCLUDE = re.compile(
+    r'<!--\s*#include\s+virtual\s*=\s*["\']([^"\']+)["\']\s*-->',
+    re.IGNORECASE,
+)
+
+ROOT_ATTR = re.compile(
+    r'(\b(?:href|src|action)\s*=\s*["\'])/',
+    re.IGNORECASE,
+)
+ROOT_CSS_URL = re.compile(r"url\(\s*/", re.IGNORECASE)
+ROOT_META_URL = re.compile(r"(\burl=)/", re.IGNORECASE)
+
+HTML_SUFFIXES = {".htm", ".html", ".shtml"}
+
+URL_SUBSTITUTIONS = (
+    ("ptolemy.berkeley.edu", "ptolemy.org"),
+    ("ptolemy.eecs.berkeley.edu", "ptolemy.org"),
+)
+
+TEXT_SUFFIXES = HTML_SUFFIXES | {
+    ".css",
+    ".js",
+    ".txt",
+    ".xml",
+    ".htm",
+}
+
+SKIP_NAMES = {".git", "_site", ".github", "__pycache__", ".DS_Store"}
+
+LEGACY_URL_PREFIX = "/~eal"
+
+
+def repo_root() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
+def normalize_base_path(base_path: str) -> str:
+    base_path = base_path.strip()
+    if not base_path or base_path == "/":
+        return ""
+    if not base_path.startswith("/"):
+        base_path = "/" + base_path
+    return base_path.rstrip("/")
+
+
+def substitute_urls(text: str) -> str:
+    for old, new in URL_SUBSTITUTIONS:
+        text = text.replace(old, new)
+    return text
+
+
+def rewrite_legacy_prefix(text: str, base_path: str) -> str:
+    """Map legacy /~eal/... URLs to the deployed base path."""
+    target = normalize_base_path(base_path)
+    if target == LEGACY_URL_PREFIX:
+        return text
+
+    if target:
+        replacement = target + "/"
+    else:
+        replacement = "/"
+
+    text = text.replace(f"{LEGACY_URL_PREFIX}/", replacement)
+    text = text.replace(f"{LEGACY_URL_PREFIX}\"", f'{target}"')
+    text = text.replace(f"{LEGACY_URL_PREFIX}'", f"{target}'")
+
+    for scheme in ("http://ptolemy.org", "https://ptolemy.org"):
+        text = text.replace(f"{scheme}{LEGACY_URL_PREFIX}/", f"{scheme}{target}/")
+        text = text.replace(f"{scheme}{LEGACY_URL_PREFIX}\"", f'{scheme}{target}"')
+
+    return text
+
+
+def apply_base_path(text: str, base_path: str) -> str:
+    base = normalize_base_path(base_path)
+    if not base:
+        return text
+
+    prefix = base + "/"
+    skip = base.lstrip("/") + "/"
+
+    def should_prefix(remainder: str) -> bool:
+        if remainder.startswith("/"):
+            return False
+        if remainder.startswith(skip):
+            return False
+        if remainder.startswith("~eal/"):
+            return False
+        return True
+
+    def attr_repl(match: re.Match[str]) -> str:
+        remainder = text[match.end() :]
+        if not should_prefix(remainder):
+            return match.group(0)
+        return f"{match.group(1)}{prefix}"
+
+    def css_repl(match: re.Match[str]) -> str:
+        remainder = text[match.end() :]
+        if not should_prefix(remainder):
+            return match.group(0)
+        return f"url({prefix}"
+
+    def meta_repl(match: re.Match[str]) -> str:
+        remainder = text[match.end() :]
+        if not should_prefix(remainder):
+            return match.group(0)
+        return f"{match.group(1)}{prefix}"
+
+    text = ROOT_ATTR.sub(attr_repl, text)
+    text = ROOT_CSS_URL.sub(css_repl, text)
+    text = ROOT_META_URL.sub(meta_repl, text)
+    return text
+
+
+def transform_text(text: str, base_path: str) -> str:
+    text = substitute_urls(text)
+    text = rewrite_legacy_prefix(text, base_path)
+    text = apply_base_path(text, base_path)
+    return text
+
+
+def resolve_include_path(
+    virtual_path: str, current_file: Path, site_root: Path
+) -> Path | None:
+    path = virtual_path.strip()
+    if path.startswith(f"{LEGACY_URL_PREFIX}/"):
+        path = path[len(LEGACY_URL_PREFIX) + 1 :]
+
+    site_resolved = site_root.resolve()
+
+    if path.startswith("/"):
+        rel = path.lstrip("/")
+        candidates = [
+            site_root / rel,
+            site_root / "ssi" / rel.removeprefix("ssi/"),
+        ]
+        for candidate in candidates:
+            resolved = candidate.resolve()
+            try:
+                resolved.relative_to(site_resolved)
+            except ValueError:
+                continue
+            if resolved.is_file():
+                return resolved
+        return None
+
+    resolved = (current_file.parent / path).resolve()
+    try:
+        resolved.relative_to(site_resolved)
+    except ValueError:
+        return None
+    if resolved.is_file():
+        return resolved
+    return None
+
+
+def expand_ssi(
+    content: str,
+    site_root: Path,
+    current_file: Path,
+    stack: tuple[str, ...],
+) -> str:
+    def replace(match: re.Match[str]) -> str:
+        virtual_path = match.group(1)
+        if virtual_path.lower().startswith(("http://", "https://")):
+            return f"<!-- SSI remote include omitted: {virtual_path} -->"
+
+        include_path = resolve_include_path(virtual_path, current_file, site_root)
+        if include_path is None:
+            return f"<!-- SSI include missing: {virtual_path} -->"
+
+        key = str(include_path)
+        if key in stack:
+            raise ValueError(f"SSI circular include: {' -> '.join(stack + (key,))}")
+
+        included = include_path.read_text(encoding="utf-8", errors="replace")
+        return expand_ssi(included, site_root, include_path, stack + (key,))
+
+    return SSI_INCLUDE.sub(replace, content)
+
+
+def should_copy(name: str) -> bool:
+    return name not in SKIP_NAMES
+
+
+def copy_site(source: Path, destination: Path) -> None:
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.mkdir(parents=True)
+
+    for entry in source.iterdir():
+        if not should_copy(entry.name):
+            continue
+        target = destination / entry.name
+        if entry.is_dir():
+            shutil.copytree(
+                entry,
+                target,
+                ignore=lambda _dir, names: [n for n in names if not should_copy(n)],
+                symlinks=True,
+            )
+        else:
+            shutil.copy2(entry, target, follow_symlinks=False)
+
+
+def process_html_files(site_root: Path, base_path: str) -> int:
+    count = 0
+    for path in site_root.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in HTML_SUFFIXES:
+            continue
+        content = path.read_text(encoding="utf-8", errors="replace")
+        if "#include" not in content.lower():
+            continue
+        expanded = expand_ssi(content, site_root, path, ())
+        path.write_text(transform_text(expanded, base_path), encoding="utf-8")
+        count += 1
+    return count
+
+
+def apply_text_transforms(site_root: Path, base_path: str) -> int:
+    count = 0
+    for path in site_root.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.suffix.lower() not in TEXT_SUFFIXES and path.name != "robots.txt":
+            continue
+        original = path.read_text(encoding="utf-8", errors="replace")
+        updated = transform_text(original, base_path)
+        if updated != original:
+            path.write_text(updated, encoding="utf-8")
+            count += 1
+    return count
+
+
+def main() -> int:
+    root = repo_root()
+    output = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else root / "_site"
+
+    if output == root:
+        print("Refusing to build into the repository root.", file=sys.stderr)
+        return 1
+
+    base_path = os.environ.get("SITE_BASE_PATH", "")
+
+    print(f"Copying site from {root} to {output}")
+    copy_site(root, output)
+
+    if base_path:
+        print(f"Using site base path: {normalize_base_path(base_path)}")
+    else:
+        print("Using site base path: (none — served from domain root)")
+
+    print("Expanding SSI includes...")
+    html_count = process_html_files(output, base_path)
+    print(f"  expanded includes in {html_count} HTML files")
+
+    print("Applying URL rewrites...")
+    text_count = apply_text_transforms(output, base_path)
+    print(f"  updated {text_count} text files")
+
+    print(f"Build complete: {output}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
