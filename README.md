@@ -16,11 +16,13 @@ After enabling **Settings → Pages → Source: GitHub Actions** on
 
 ### Serving under ptolemy.org/~eal/
 
-GitHub allows only one custom domain per Pages site, so `ptolemy.org` is used
-by the main [ptweb](https://github.com/icyphy/ptweb) repo. To mirror the legacy
-`ptolemy.org/~eal/` URL, build this site into the ptweb artifact at `_site/~eal/`
-(with `SITE_BASE_PATH=/~eal`) from the ptweb workflow, or use a subdomain such
-as `eal.ptolemy.org` for this repo.
+The [ptweb](https://github.com/icyphy/ptweb) GitHub Pages workflow checks out
+this repo and builds it into `_site/~eal/` with `SITE_BASE_PATH=/~eal`, so the
+legacy URL **https://ptolemy.org/~eal/** works on the main Ptolemy site.
+
+Pushes here to `main` also deploy a standalone copy to
+**https://edwardalee.github.io/homepage/** (with `/~eal/` links rewritten to
+`/homepage/`).
 
 ## Local Preview
 
